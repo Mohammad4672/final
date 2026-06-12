@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎓 مبروك يا رُبى</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1,#84fab0);
+background-size:500% 500%;
+animation:bgMove 15s ease infinite;
+}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+#stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+.star{
+position:absolute;
+color:white;
+animation:twinkle 2s infinite;
+}
+@keyframes twinkle{
+0%,100%{opacity:.2;}
+50%{opacity:1;}
+}
+.card{
+position:relative;
+z-index:5;
+width:90%;
+max-width:850px;
+padding:45px;
+text-align:center;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.3);
+border-radius:30px;
+color:white;
+box-shadow:0 25px 70px rgba(0,0,0,.25);
+animation:appear 1.5s ease;
+}
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+h1{
+font-size:3rem;
+margin-bottom:15px;
+text-shadow:0 0 25px rgba(255,255,255,.8);
+animation:glow 3s infinite;
+}
+@keyframes glow{
+0%,100%{
+text-shadow:0 0 15px rgba(255,255,255,.5);
+}
+50%{
+text-shadow:0 0 35px rgba(255,255,255,1);
+}
+}
+.subtitle{
+font-size:1.2rem;
+margin-bottom:25px;
+}
+.message{
+font-size:1.15rem;
+line-height:2;
+}
+.btn{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+background:white;
+color:#d63384;
+transition:.3s;
+}
+.btn:hover{
+transform:scale(1.08);
+}
+.hidden{
+display:none;
+margin-top:25px;
+font-size:1.15rem;
+line-height:2;
+animation:fade 1s ease;
+}
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+.heart{
+position:absolute;
+bottom:-30px;
+font-size:24px;
+animation:float linear infinite;
+opacity:.9;
+}
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+.confetti{
+position:absolute;
+top:-20px;
+width:10px;
+height:10px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div class="card">
+<h1>🎓 مبروك يا رُبى ❤️</h1>
+<p class="subtitle">
+وأخيراً... خلصتِ الامتحانات ✨
+</p>
+<div class="message">
+بعد أيام طويلة من التعب والسهر والتركيز...<br>
+وصل اليوم يلي كنتِ ناطرتيه. 🌸<br><br>
+
+كل ساعة دراسة، كل لحظة توتر،
+وكل تعب مرق بهالفترة صار وراكي. ❤️
+
+اليوم مش يوم امتحانات…
+اليوم يوم راحة وفرحة لأنك كملتي للنهاية. 🎉
+
+</div>
+<button class="btn" onclick="showGift()">
+🎁 افتحي المفاجأة
+</button>
+<div id="gift" class="hidden">
+✨ يا رُبى ✨<br><br>
+
+يمكن هالفترة كانت صعبة،
+بس قدرتِ تكمليها بكل قوة وصبر. ❤️
+
+خدي نفس عميق…
+ارتاحي من كل الضغط والتوتر،
+واستمتعي بهاللحظة الحلوة. 🌷
+
+مهما كانت النتيجة،
+إنتِ أكبر من أي امتحان،
+وأجمل من أي علامة. ✨❤️
+
+اليوم فرحتك… افرحي قد ما بدك. 🎓🎉
+
+</div>
+</div>
+<script>
+for(let i=0;i<80;i++){
+let star=document.createElement("div");
+star.className="star";
+star.innerHTML="✨";
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+star.style.fontSize=(8+Math.random()*12)+"px";
+star.style.animationDelay=Math.random()*2+"s";
+document.getElementById("stars").appendChild(star);
+}
+for(let i=0;i<40;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML=["❤️","💖","💕","🌸"][Math.floor(Math.random()*4)];
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(6+Math.random()*8)+"s";
+heart.style.fontSize=(18+Math.random()*20)+"px";
+document.body.appendChild(heart);
+}
+for(let i=0;i<130;i++){
+let conf=document.createElement("div");
+conf.className="confetti";
+conf.style.left=Math.random()*100+"%";
+conf.style.background=
+["#ff4d6d","#ffd166","#06d6a0","#118ab2","#ffffff"][Math.floor(Math.random()*5)];
+conf.style.animationDuration=(4+Math.random()*5)+"s";
+conf.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(conf);
+}
+function showGift(){
+document.getElementById("gift").style.display="block";
+for(let i=0;i<50;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=(40+Math.random()*20)+"%";
+h.style.animationDuration="4s";
+document.body.appendChild(h);
+}
+}
+</script>
+</body>
+</html>
