@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبروك يا رُبى 🎓❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.card{
+width:90%;
+max-width:750px;
+padding:40px;
+text-align:center;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.3);
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+color:white;
+animation:appear 1.5s ease;
+position:relative;
+z-index:10;
+}
+
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.subtitle{
+font-size:1.2rem;
+margin-bottom:25px;
+opacity:.95;
+}
+
+.message{
+line-height:2;
+font-size:1.15rem;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+background:white;
+color:#d63384;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+.hidden{
+display:none;
+margin-top:25px;
+font-size:1.2rem;
+line-height:2;
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+.heart{
+position:absolute;
+bottom:-20px;
+font-size:25px;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+.confetti{
+position:absolute;
+top:-20px;
+width:10px;
+height:10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>🎓 مبروك يا رُبى ❤️</h1>
+
+<p class="subtitle">
+وأخيراً خلصتِ الامتحانات!
+</p>
+
+<div class="message">
+بعد أيام من التعب والسهر والتركيز...<br>
+وصل اليوم يلي كنتِ ناطرتيه. ✨<br><br>
+
+اليوم مش يوم دراسة ولا امتحانات...<br>
+اليوم يوم فرحة وراحة لأنك تعبتِ وقدرتِ تكملي للنهاية. 🌸<br><br>
+
+مهما كانت النتائج،
+أنتِ ربحتِ لأنك واجهتي التحدي وما استسلمتي. ❤️
+</div>
+
+<button class="btn" onclick="showGift()">
+🎁 افتحي المفاجأة
+</button>
+
+<div id="gift" class="hidden">
+✨ يا رُبى ✨<br><br>
+
+يمكن الامتحانات خلصت...<br>
+بس جمالك وقوتك وصبرك ما بيخلصوا. ❤️<br><br>
+
+خدي نفس، ارتاحي، وعيشي هالفرحة.<br>
+بتستحقي كل الخير وكل النجاح. 🌷<br><br>
+
+— 
+</div>
+</div>
+
+<script>
+function showGift(){
+document.getElementById("gift").style.display="block";
+createBurst();
+}
+
+for(let i=0;i<35;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML=["❤️","💖","💕","💗","🌸"][Math.floor(Math.random()*5)];
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(6+Math.random()*8)+"s";
+heart.style.fontSize=(18+Math.random()*25)+"px";
+document.body.appendChild(heart);
+}
+
+for(let i=0;i<120;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"%";
+c.style.background=
+["#ff4d6d","#ffd166","#06d6a0","#118ab2","#ffffff"][Math.floor(Math.random()*5)];
+c.style.animationDuration=(4+Math.random()*6)+"s";
+c.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(c);
+}
+
+function createBurst(){
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=(40+Math.random()*20)+"%";
+h.style.animationDuration="4s";
+document.body.appendChild(h);
+}
+}
+</script>
+
+</body>
+</html>
