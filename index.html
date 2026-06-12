@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎓 إلى رُبى</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#0f172a,
+#1e293b,
+#312e81,
+#4c1d95
+);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+position:relative;
+}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+#stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+.star{
+position:absolute;
+color:white;
+animation:twinkle 2.5s infinite;
+}
+@keyframes twinkle{
+0%,100%{opacity:.2;}
+50%{opacity:1;}
+}
+.card{
+position:relative;
+z-index:5;
+width:90%;
+max-width:850px;
+padding:45px;
+text-align:center;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.2);
+border-radius:32px;
+color:white;
+box-shadow:0 25px 80px rgba(0,0,0,.45);
+animation:appear 1.5s ease;
+}
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+h1{
+font-size:3.2rem;
+font-weight:800;
+margin-bottom:15px;
+text-shadow:
+0 0 10px rgba(255,255,255,.5),
+0 0 25px rgba(255,255,255,.3);
+}
+.subtitle{
+font-size:1.25rem;
+margin-bottom:25px;
+opacity:.95;
+}
+.message{
+font-size:1.15rem;
+line-height:2.1;
+text-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+.btn{
+margin-top:30px;
+padding:16px 38px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer;
+background:white;
+color:#4c1d95;
+transition:.3s;
+}
+.btn:hover{
+transform:scale(1.08);
+}
+.hidden{
+display:none;
+margin-top:30px;
+font-size:1.15rem;
+line-height:2.1;
+animation:fade 1s ease;
+}
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+.heart{
+position:absolute;
+bottom:-30px;
+font-size:24px;
+animation:float linear infinite;
+opacity:.9;
+}
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+.spark{
+position:absolute;
+pointer-events:none;
+font-size:22px;
+animation:burst 3s ease forwards;
+}
+@keyframes burst{
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+100%{
+opacity:0;
+transform:translateY(-250px) scale(1.8);
+}
+}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div class="card">
+<h1>🎓 مبروك يا رُبى ✨</h1>
+<p class="subtitle">
+وأخيراً خلصتِ الامتحانات 🌙
+</p>
+<div class="message">
+يمكن كانت أيام طويلة...<br>
+وفيها تعب أكتر ما حدا بيتخيّل. ❤️<br><br>
+
+بس اليوم مختلف.
+اليوم انتهى فصل كامل من السهر والتوتر والانتظار. ✨
+
+كل لحظة تعبتي فيها،
+وكل مرة كفيتي رغم التعب،
+كانت عم تقرّبك لهاللحظة الحلوة. 🌸
+
+</div>
+<button class="btn" onclick="showGift()">
+🎁 افتحي الرسالة
+</button>
+<div id="gift" class="hidden">
+🌷 يا رُبى 🌷<br><br>
+
+اليوم ما بدك تفكري بامتحان،
+ولا بموعد،
+ولا بأي ضغط مرق بهالفترة. ❤️
+
+اليوم بس ارتاحي…
+واضحكي…
+وانبسطي لأنك وصلتي للنهاية. ✨
+
+ومهما كانت النتائج،
+قيمتك ما بتنقاس بعلامة،
+ولا بورقة امتحان. 🌙
+
+أهم شي إنك بذلتي جهدك،
+وانا اكيد تعبك ما بروح عالفاضي ورح تنجحي . 🤍✨
+
+</div>
+</div>
+<script>
+for(let i=0;i<120;i++){
+let star=document.createElement("div");
+star.className="star";
+star.innerHTML="✦";
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+star.style.fontSize=(6+Math.random()*10)+"px";
+star.style.animationDelay=Math.random()*3+"s";
+document.getElementById("stars").appendChild(star);
+}
+for(let i=0;i<35;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML=["🤍","✨","💜","⭐"][Math.floor(Math.random()*4)];
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(16+Math.random()*18)+"px";
+heart.style.animationDuration=(7+Math.random()*8)+"s";
+document.body.appendChild(heart);
+}
+function showGift(){
+document.getElementById("gift").style.display="block";
+for(let i=0;i<60;i++){
+let spark=document.createElement("div");
+spark.className="spark";
+spark.innerHTML=["✨","⭐","💜","🤍"][Math.floor(Math.random()*4)];
+spark.style.left=(45+Math.random()*10)+"%";
+spark.style.top="60%";
+document.body.appendChild(spark);
+setTimeout(()=>{
+spark.remove();
+},3000);
+}
+}
+</script>
+</body>
+</html>
